@@ -62,8 +62,13 @@ def search_documents():
 
     return jsonify({"results": filtered_results})
 
+import os
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True, use_reloader=False)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's assigned port
+    app.run(host="0.0.0.0", port=port, debug=True)
+
+
 
 
 
